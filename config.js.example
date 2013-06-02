@@ -1,5 +1,4 @@
 module.exports = {
-    auth : "IKGb+BG7Zk1BGUjemQIvyNnQVq8=?_expires=STEzODU2NzQyODIKLg==&user_id=Uyc1MWFhNTZhYjNiNzkwMzM5NjNiNTAxYjEnCnAxCi4="
+    auth : "xxxxxx?_expires=xxxxxxx==&user_id=xxxxxxxxxxxx"
   , room : 'coding-soundtrack'
 }
-
