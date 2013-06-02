@@ -4,7 +4,7 @@ EventEmitter = require('events').EventEmitter
 Q_CHAT = ":quorum" #text to send and look for in the chat
 Q_CHAT_TIME = 10*60*1000 #how often to chat (in ms)
 Q_CHECK_TIME = 11*60*1000 #how often to check for splits (in ms, must be greater than Q_CHAT_TIME)
-Q_NODES = 3 #the number of nodes to use to check for quorum
+Q_NODES = 3 #the number of nodes to use to check for quorum (INCLUDING SELF)
 
 class Quorum extends EventEmitter
 	constructor: (@bot)->
