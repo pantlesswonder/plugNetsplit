@@ -2,8 +2,8 @@ EventEmitter = require('events').EventEmitter
 
 #configuration
 Q_CHAT = ":quorum" #text to send and look for in the chat
-Q_CHAT_TIME = 10*60*1000 #how often to chat (in ms)
-Q_CHECK_TIME = 11*60*1000 #how often to check for splits (in ms, must be greater than Q_CHAT_TIME)
+Q_CHAT_TIME = 30*60*1000 #how often to chat (in ms)
+Q_CHECK_TIME = Q_CHAT_TIME + 60*1000 #how often to check for splits
 Q_NODES = 3 #the number of nodes to use to check for quorum (INCLUDING SELF)
 
 class Quorum extends EventEmitter
@@ -22,8 +22,8 @@ class Quorum extends EventEmitter
 		clearInterval(@checkInterval)
 
 		#start our check and chat intervals, and 
-		@chatInterval = setInterval(@chat, Q_CHAT_TIME)
-		@checkInterval = setInterval(@check, Q_CHECK_TIME)
+		@chatInterval = setInterval(@chat.bind(@), Q_CHAT_TIME)
+		@checkInterval = setInterval(@check.bind(@), Q_CHECK_TIME)
 		@chat()
 
 	chatted: (data)->
